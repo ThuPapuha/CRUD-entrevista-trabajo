@@ -137,6 +137,8 @@ Después de configurar la base de datos remota, ejecuta la migración:
 npm run migrate
 ```
 
+En Elastic Beanstalk la migración también se ejecuta automáticamente después de cada despliegue si existen variables de conexión a base de datos.
+
 ## Publicar en GitHub
 
 Después de crear un repositorio vacío en GitHub, enlázalo y sube el código:
