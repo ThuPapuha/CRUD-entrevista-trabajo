@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS crud_service CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE crud_service;
+
+CREATE TABLE IF NOT EXISTS records (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  full_name VARCHAR(120) NOT NULL,
+  rfc VARCHAR(13) NOT NULL,
+  email VARCHAR(160) NOT NULL,
+  postal_code CHAR(5) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY records_rfc_unique (rfc),
+  UNIQUE KEY records_email_unique (email)
+);

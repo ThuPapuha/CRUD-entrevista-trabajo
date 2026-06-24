@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Node MySQL CRUD Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "recordId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Create Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Juan Perez Lopez\",\n  \"rfc\": \"PELJ800101ABC\",\n  \"email\": \"juan.perez@example.com\",\n  \"postalCode\": \"01000\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Get Records",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Get Record By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Update Record",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Juan Perez Lopez Actualizado\",\n  \"rfc\": \"PELJ800101ABC\",\n  \"email\": \"juan.actualizado@example.com\",\n  \"postalCode\": \"03100\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Delete Record",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    }
+  ]
+}
