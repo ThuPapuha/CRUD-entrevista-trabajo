@@ -112,6 +112,31 @@ npm test
 
 El workflow `.github/workflows/ci.yml` instala dependencias, ejecuta ESLint y corre las pruebas en cada push o pull request hacia `main`.
 
+## Despliegue en AWS
+
+Ruta recomendada:
+
+- Elastic Beanstalk para el microservicio Node.js
+- Amazon RDS for MySQL para la base de datos
+
+Variables requeridas en Elastic Beanstalk:
+
+```text
+DB_HOST=endpoint-rds.amazonaws.com
+DB_PORT=3306
+DB_USER=usuario_rds
+DB_PASSWORD=password_rds
+DB_NAME=crud_service
+```
+
+También es compatible con las variables `RDS_HOSTNAME`, `RDS_PORT`, `RDS_USERNAME`, `RDS_PASSWORD` y `RDS_DB_NAME` generadas por Elastic Beanstalk cuando se adjunta una base RDS al ambiente.
+
+Después de configurar la base de datos remota, ejecuta la migración:
+
+```bash
+npm run migrate
+```
+
 ## Publicar en GitHub
 
 Después de crear un repositorio vacío en GitHub, enlázalo y sube el código:
