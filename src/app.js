@@ -11,6 +11,16 @@ function createApp() {
   app.use(cors());
   app.use(express.json());
 
+  app.use((req, _res, next) => {
+    if (req.url === "/default") {
+      req.url = "/";
+    } else if (req.url.startsWith("/default/")) {
+      req.url = req.url.slice("/default".length);
+    }
+
+    next();
+  });
+
   app.get("/", (_req, res) => {
     res.json({
       name: "Node MySQL CRUD Service",

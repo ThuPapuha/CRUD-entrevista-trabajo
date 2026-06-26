@@ -1,6 +1,9 @@
 const js = require("@eslint/js");
 
 module.exports = [
+  {
+    ignores: ["frontend/**", "node_modules/**", "coverage/**"]
+  },
   js.configs.recommended,
   {
     files: ["**/*.js"],
